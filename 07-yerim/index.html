@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>예림 - 다들 뭐하고 있나요?</title>
+	<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../style.css">
+
+</head>
+<body>
+	<!-- <iframe src="https://docs.google.com/document/d/e/2PACX-1vS0bczh3j3ZpEL2U4frJqydhU0CxmtR6nym_dtoROimxwiZinUvctTyusKNFhCMBRNwoPZMROyQBCCG/pub?embedded=true"></iframe> -->
+	<div class="main-container">
+		<div class="iframe-container">
+				<iframe src="https://docs.google.com/document/d/14cnFi9liyC7Da717Lr-RuTXVRYaqpmPv_LAgshvE0e4/edit?tab=t.0"></iframe>
+		</div>
+		
+		<div class="sidebar">
+			<div class="header-section">
+				<div class="header-dark">다들 뭐하고 있나요?</div>
+			</div>
+			
+			<div class="student-buttons">
+				<div class="button-grid-4x4">
+					<button class="student-button" onclick="navigateToStudent('01-jaeyeon')">재연</button>
+					<button class="student-button" onclick="navigateToStudent('02-sion')">시온</button>
+					<button class="student-button" onclick="navigateToStudent('03-seungju')">승주</button>
+					<button class="student-button" onclick="navigateToStudent('04-hyeonsu')">현수</button>
+					<button class="student-button" onclick="navigateToStudent('05-seungwan')">승완</button>
+					<button class="student-button" onclick="navigateToStudent('06-hyeonseong')">현성</button>
+					<button class="student-button" onclick="navigateToStudent('07-yerim')">예림</button>
+					<button class="student-button" onclick="navigateToStudent('08-jiheon')">지헌</button>
+					<button class="student-button" onclick="navigateToStudent('09-doyoon')">도윤</button>
+					<button class="student-button" onclick="navigateToStudent('10-jaewon')">재원</button>
+					<button class="student-button" onclick="navigateToStudent('11-mariyam')">마리얌</button>
+					<button class="student-button" onclick="navigateToStudent('12-simga')">심가</button>
+					<button class="student-button" onclick="navigateToStudent('13-juchan')">주찬</button>
+					<button class="student-button" onclick="navigateToStudent('14-yeonwoo')">연우</button>
+					<button class="student-button" onclick="navigateToStudent('15-jihoo')">지후</button>
+					<button class="student-button" onclick="navigateToStudent('16-shini')">신이</button>
+				</div>
+			</div>
+			
+			<div class="header-section">
+				<button class="home-button" onclick="goHome()">반 전시는 어떻게?</button>
+			</div>
+			
+			<div class="comment-section">
+				<div class="comment-title">아무 말이나 한마디...</div>
+				
+				<div class="comment-list" id="commentList">
+					<div class="loading-message">댓글을 불러오는 중...</div>
+				</div>
+				
+				<div class="comment-form">
+					<div class="comment-input-row">
+						<input type="text" id="commentInput" class="comment-input" placeholder="댓글을 입력하세요...">
+						<button class="submit-button" onclick="submitComment()">입력</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script>
+		// 현재 페이지 상태 관리
+		let currentPage = 'home'; // 'home' 또는 학생 폴더명
+		
+		// 페이지 로드 시 현재 상태 확인
+		document.addEventListener('DOMContentLoaded', function() {
+			updateActiveButton();
+		});
+		
+		function navigateToStudent(folderName) {
+			// 모든 버튼에서 active 클래스 제거
+			document.querySelectorAll('.student-button').forEach(btn => {
+				btn.classList.remove('active');
+			});
+			
+			// 클릭된 버튼에 active 클래스 추가
+			event.target.classList.add('active');
+			
+			// 페이지 이동
+						window.location.href = `../${folderName}/index.html`;
+		}
+		
+		function goHome() {
+			window.location.href = '../index.html';
+		}
+		
+		function updateActiveButton() {
+			// URL에서 현재 페이지 확인
+			const path = window.location.pathname;
+			if (path.includes('/01-jaeyeon/')) {
+				setActiveButton('01-jaeyeon');
+			} else if (path.includes('/02-sion/')) {
+				setActiveButton('02-sion');
+			} else if (path.includes('/03-seungju/')) {
+				setActiveButton('03-seungju');
+			} else if (path.includes('/04-hyeonsu/')) {
+				setActiveButton('04-hyeonsu');
+			} else if (path.includes('/05-seungwan/')) {
+				setActiveButton('05-seungwan');
+			} else if (path.includes('/06-hyeonseong/')) {
+				setActiveButton('06-hyeonseong');
+			} else if (path.includes('/07-yerim/')) {
+				setActiveButton('07-yerim');
+			} else if (path.includes('/08-jiheon/')) {
+				setActiveButton('08-jiheon');
+			} else if (path.includes('/09-doyoon/')) {
+				setActiveButton('09-doyoon');
+			} else if (path.includes('/10-jaewon/')) {
+				setActiveButton('10-jaewon');
+			} else if (path.includes('/11-mariyam/')) {
+				setActiveButton('11-mariyam');
+			} else if (path.includes('/12-simga/')) {
+				setActiveButton('12-simga');
+			} else if (path.includes('/13-juchan/')) {
+				setActiveButton('13-juchan');
+			} else if (path.includes('/14-yeonwoo/')) {
+				setActiveButton('14-yeonwoo');
+			} else if (path.includes('/15-jihoo/')) {
+				setActiveButton('15-jihoo');
+			} else if (path.includes('/16-shini/')) {
+				setActiveButton('16-shini');
+			} else {
+				// 홈페이지인 경우 모든 버튼 비활성화
+				document.querySelectorAll('.student-button').forEach(btn => {
+					btn.classList.remove('active');
+				});
+			}
+		}
+		
+		function setActiveButton(folderName) {
+			// 모든 버튼에서 active 클래스 제거
+			document.querySelectorAll('.student-button').forEach(btn => {
+				btn.classList.remove('active');
+			});
+			
+			// 해당 폴더의 버튼에 active 클래스 추가
+			const buttons = document.querySelectorAll('.student-button');
+			buttons.forEach(btn => {
+				if (btn.onclick.toString().includes(folderName)) {
+					btn.classList.add('active');
+				}
+			});
+		}
+		
+		// 구글 스프레드시트 설정
+		const SPREADSHEET_ID = '1uGb43CbxP3Yew6g0Fs3rpjfohrdwpR7je9RGx1rrzfc';
+		const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw7RWedV676CEfOXeUHj_a-4xqLoe2Z2RgxwavDmnDfj0z9ktZyL2jODWun8xB3YX34/exec';
+		
+		// 현재 페이지 확인 (스프레드시트 시트명으로 사용)
+		function getCurrentSheetName() {
+			const path = window.location.pathname;
+			if (path.includes('/01-jaeyeon/')) return '01-jaeyeon';
+			if (path.includes('/02-sion/')) return '02-sion';
+			if (path.includes('/03-seungju/')) return '03-seungju';
+			if (path.includes('/04-hyeonsu/')) return '04-hyeonsu';
+			if (path.includes('/05-seungwan/')) return '05-seungwan';
+			if (path.includes('/06-hyeonseong/')) return '06-hyeonseong';
+			if (path.includes('/07-yerim/')) return '07-yerim';
+			if (path.includes('/08-jiheon/')) return '08-jiheon';
+			if (path.includes('/09-doyoon/')) return '09-doyoon';
+			if (path.includes('/10-jaewon/')) return '10-jaewon';
+			if (path.includes('/11-mariyam/')) return '11-mariyam';
+			if (path.includes('/12-simga/')) return '12-simga';
+			if (path.includes('/13-juchan/')) return '13-juchan';
+			if (path.includes('/14-yeonwoo/')) return '14-yeonwoo';
+			if (path.includes('/15-jihoo/')) return '15-jihoo';
+			if (path.includes('/16-shini/')) return '16-shini';
+			return 'home';
+		}
+		
+		// 댓글 전송 중 상태 관리
+		let isSubmitting = false;
+		
+		// 댓글 저장
+		async function submitComment() {
+			// 이미 전송 중이면 중복 전송 방지
+			if (isSubmitting) {
+				return;
+			}
+			
+			const commentInput = document.getElementById('commentInput');
+			const message = commentInput.value.trim();
+			
+			if (!message) {
+				// 조용히 플레이스홀더로 알림
+				commentInput.placeholder = '댓글을 입력해주세요...';
+				setTimeout(() => {
+					commentInput.placeholder = '댓글을 입력하세요...';
+				}, 2000);
+				return;
+			}
+			
+			// 전송 중 상태로 설정
+			isSubmitting = true;
+			const submitButton = document.querySelector('.submit-button');
+			const originalText = submitButton.textContent;
+			submitButton.textContent = '전송 중...';
+			submitButton.disabled = true;
+			
+			const sheetName = getCurrentSheetName();
+			const commentData = {
+				timestamp: new Date().toISOString(),
+				message: message,
+				sheet: sheetName
+			};
+			
+			try {
+				// 구글 스프레드시트에 댓글 저장
+				await fetch(SCRIPT_URL, {
+					method: 'POST',
+					mode: 'no-cors',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(commentData)
+				});
+				
+				// 입력 필드 초기화
+				commentInput.value = '';
+				
+				// 댓글 목록 새로고침 (약간의 지연 후)
+				setTimeout(() => {
+					loadComments();
+				}, 1000);
+				
+			} catch (error) {
+				console.error('댓글 저장 오류:', error);
+				// 조용히 플레이스홀더로 에러 표시
+				commentInput.placeholder = '전송 실패. 다시 시도해주세요...';
+				setTimeout(() => {
+					commentInput.placeholder = '댓글을 입력하세요...';
+				}, 3000);
+			} finally {
+				// 전송 완료 후 상태 복원
+				isSubmitting = false;
+				submitButton.textContent = originalText;
+				submitButton.disabled = false;
+			}
+		}
+		
+		// 댓글 목록 로드
+		async function loadComments() {
+			const commentList = document.getElementById('commentList');
+			const sheetName = getCurrentSheetName();
+			
+			try {
+				// 로딩 메시지 표시
+				commentList.innerHTML = '<div class="loading-message">댓글을 불러오는 중...</div>';
+				
+				// 구글 스프레드시트에서 댓글 가져오기
+				const url = `${SCRIPT_URL}?sheet=${sheetName}`;
+				
+				const response = await fetch(url, {
+					mode: 'cors'
+				});
+				
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+				
+				const comments = await response.json();
+				
+				// 댓글 목록 렌더링 (최신순 정렬)
+				if (comments && comments.length > 0) {
+					commentList.innerHTML = '';
+					// 최신 댓글이 위로 오도록 정렬 (timestamp 기준 내림차순)
+					comments.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+					comments.forEach(comment => {
+						addCommentToUI(comment);
+					});
+				} else {
+					commentList.innerHTML = '<div class="loading-message">아직 댓글이 없습니다. 첫 번째 댓글을 작성해보세요!</div>';
+				}
+			} catch (error) {
+				console.error('댓글 로드 오류:', error);
+				commentList.innerHTML = '<div class="loading-message">댓글을 불러오는 중 오류가 발생했습니다.</div>';
+			}
+		}
+		
+		// 댓글 UI에 추가
+		function addCommentToUI(comment) {
+			const commentList = document.getElementById('commentList');
+			const commentElement = document.createElement('div');
+			commentElement.className = 'comment-item';
+			
+			// 날짜 포맷팅
+			const date = new Date(comment.timestamp);
+			const formattedDate = date.toLocaleDateString('ko-KR', {
+				year: 'numeric',
+				month: '2-digit',
+				day: '2-digit',
+				hour: '2-digit',
+				minute: '2-digit'
+			});
+			
+			commentElement.innerHTML = `
+				<div class="comment-header">
+					<div class="comment-time">${formattedDate}</div>
+				</div>
+				<div class="comment-text">${comment.message}</div>
+			`;
+			
+			commentList.appendChild(commentElement);
+		}
+		
+		// 페이지 로드 시 초기화
+		document.addEventListener('DOMContentLoaded', function() {
+			// 댓글 로드
+			loadComments();
+			
+			// 엔터키로 댓글 제출 (중복 등록 방지)
+			const commentInput = document.getElementById('commentInput');
+			if (commentInput && !commentInput.hasAttribute('data-listener-added')) {
+				commentInput.setAttribute('data-listener-added', 'true');
+				commentInput.addEventListener('keypress', function(e) {
+					if (e.key === 'Enter' && !isSubmitting) {
+						submitComment();
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>
