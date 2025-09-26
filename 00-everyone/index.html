@@ -72,10 +72,7 @@
 	
 	<!-- 홈페이지 전용 JavaScript -->
 	<script>
-		// 현재 페이지 상태 관리
-		let currentPage = 'home'; // 'home' 또는 학생 폴더명
-		
-		// 페이지 로드 시 현재 상태 확인
+		// 페이지 로드 시 초기화
 		document.addEventListener('DOMContentLoaded', function() {
 			updateActiveButton();
 			initializeCommon();
@@ -91,17 +88,34 @@
 			event.target.classList.add('active');
 			
 			// 페이지 이동
-			window.location.href = `./${folderName}/index.html`;
+			window.location.href = `../${folderName}/index.html`;
 		}
 		
 		function goHome() {
-			window.location.href = './index.html';
+			window.location.href = '../index.html';
 		}
 		
+		// 현재 페이지에 맞는 버튼 활성화
 		function updateActiveButton() {
-			// 홈페이지인 경우 모든 버튼 비활성화
+			const path = window.location.pathname;
+			if (path.includes('/01-jaeyeon/')) {
+				setActiveButton('01-jaeyeon');
+			} else {
+				document.querySelectorAll('.student-button').forEach(btn => {
+					btn.classList.remove('active');
+				});
+			}
+		}
+		
+		function setActiveButton(folderName) {
 			document.querySelectorAll('.student-button').forEach(btn => {
 				btn.classList.remove('active');
+			});
+			const buttons = document.querySelectorAll('.student-button');
+			buttons.forEach(btn => {
+				if (btn.onclick.toString().includes(folderName)) {
+					btn.classList.add('active');
+				}
 			});
 		}
 		
