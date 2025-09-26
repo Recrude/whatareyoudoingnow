@@ -3,14 +3,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>승완 - 어쩌구졸프는어쩌구...</title>
+	<title>어쩌구졸프는어쩌구...</title>
 	<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../style.css">
+
 </head>
 <body>
+	<!-- <iframe src="https://docs.google.com/document/d/e/2PACX-1vS0bczh3j3ZpEL2U4frJqydhU0CxmtR6nym_dtoROimxwiZinUvctTyusKNFhCMBRNwoPZMROyQBCCG/pub?embedded=true"></iframe> -->
 	<div class="main-container">
 		<div class="iframe-container">
-			<iframe src="https://docs.google.com/document/d/19t-XC8pEIHpqQH8Xhd40RFl6kpjZXqKqaFySGsib7iw/edit?tab=t.0"></iframe>
+			<iframe src="https://docs.google.com/document/d/1TDoTR-70_EnWzLefvYRpxfZofJsgC9E07o9CDmsDuO4/edit?tab=t.0"></iframe>
 		</div>
 		
 		<div class="sidebar">
@@ -20,7 +22,7 @@
 			
 			<div class="student-buttons">
 				<div class="button-grid-4x4">
-					<button class="student-button active" onclick="navigateToStudent('01-jaeyeon')">재연</button>
+					<button class="student-button" onclick="navigateToStudent('01-jaeyeon')">재연</button>
 					<button class="student-button" onclick="navigateToStudent('02-sion')">시온</button>
 					<button class="student-button" onclick="navigateToStudent('03-seungju')">승주</button>
 					<button class="student-button" onclick="navigateToStudent('04-hyeonsu')">현수</button>
@@ -40,7 +42,7 @@
 			</div>
 			
 			<div class="header-section">
-				<button class="home-button" onclick="goHome()" id="header-light">반 전시는 어떻게?</button>
+				<button class="home-button" onclick="goHome()" id="header-dark">반 전시는 어떻게?</button>
 			</div>
 
             <!-- 카운트다운 타이머 -->
@@ -48,13 +50,11 @@
                 <div class="timer-label">졸업전시까지...</div>
                 <div class="timer-display" id="timerDisplay">00일 00시간 00분 00초</div>
             </div>
-			
 			<div class="comment-section">
 				<div class="comment-title">아무 말이나 한마디...</div>
-				
-				<div class="comment-list" id="commentList">
-					<div class="loading-message">댓글을 불러오는 중...</div>
-				</div>
+                <div class="comment-list" id="commentList">
+                    <div class="loading-message">댓글을 불러오는 중...</div>
+                </div>
 				
 				<div class="comment-form">
 					<div class="comment-input-row">
@@ -66,12 +66,16 @@
 		</div>
 	</div>
 	
+	
 	<!-- 공통 JavaScript 파일 -->
 	<script src="../script.js"></script>
 	
-	<!-- 05-seungwan 페이지 전용 JavaScript -->
+	<!-- 홈페이지 전용 JavaScript -->
 	<script>
-		// 페이지 로드 시 초기화
+		// 현재 페이지 상태 관리
+		let currentPage = 'home'; // 'home' 또는 학생 폴더명
+		
+		// 페이지 로드 시 현재 상태 확인
 		document.addEventListener('DOMContentLoaded', function() {
 			updateActiveButton();
 			initializeCommon();
@@ -87,34 +91,17 @@
 			event.target.classList.add('active');
 			
 			// 페이지 이동
-			window.location.href = `../${folderName}/index.html`;
+			window.location.href = `./${folderName}/index.html`;
 		}
 		
 		function goHome() {
-			window.location.href = '../index.html';
+			window.location.href = './index.html';
 		}
 		
-		// 현재 페이지에 맞는 버튼 활성화
 		function updateActiveButton() {
-			const path = window.location.pathname;
-			if (path.includes('/05-seungwan/')) {
-				setActiveButton('05-seungwan');
-			} else {
-				document.querySelectorAll('.student-button').forEach(btn => {
-					btn.classList.remove('active');
-				});
-			}
-		}
-		
-		function setActiveButton(folderName) {
+			// 홈페이지인 경우 모든 버튼 비활성화
 			document.querySelectorAll('.student-button').forEach(btn => {
 				btn.classList.remove('active');
-			});
-			const buttons = document.querySelectorAll('.student-button');
-			buttons.forEach(btn => {
-				if (btn.onclick.toString().includes(folderName)) {
-					btn.classList.add('active');
-				}
 			});
 		}
 		

@@ -8,6 +8,7 @@ let isSubmitting = false;
 // 현재 페이지 확인 (스프레드시트 시트명으로 사용)
 function getCurrentSheetName() {
 	const path = window.location.pathname;
+    if (path.includes('/00-everyone/')) return '00-everyone';
 	if (path.includes('/01-jaeyeon/')) return '01-jaeyeon';
 	if (path.includes('/02-sion/')) return '02-sion';
 	if (path.includes('/03-seungju/')) return '03-seungju';
