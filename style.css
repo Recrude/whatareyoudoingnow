@@ -54,13 +54,30 @@ body {
 }
 
 .sidebar {
-	width: 300px;
+	width: 18rem;
 	background-color: white;
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+    height: 100%;
+    justify-content: space-between;
+	gap: 0.5rem;
+	overflow-y: auto;
 }
 
+.home-button {
+	padding: 0.8rem;
+	text-align: center;
+	font-weight: bold;
+	width: 100%;
+	cursor: pointer;
+	font-family: 'Gowun Batang', serif;
+	font-size: 1rem;
+	transition: background-color 0.2s ease;
+}
+
+.home-button:hover {
+	background-color: darkslategray;
+}
 /* Header section */
 .header-section {
 	display: flex;
@@ -74,7 +91,6 @@ body {
 	padding: 0.8rem;
 	text-align: center;
 	font-weight: bold;
-	border-radius: 4px;
 }
 
 .header-light {
@@ -84,40 +100,40 @@ body {
 	text-align: center;
 	font-weight: bold;
 	border: 1px solid black;
-	border-radius: 4px;
 }
 
-.home-button {
+#header-dark {
+	background-color: black;
+	color: white;
+	padding: 0.8rem;
+	text-align: center;
+	font-weight: bold;
+}
+#header-light {
 	background-color: white;
 	color: black;
 	padding: 0.8rem;
 	text-align: center;
 	font-weight: bold;
 	border: 1px solid black;
-	border-radius: 4px;
-	width: 100%;
-	cursor: pointer;
-	font-family: 'Gowun Batang', serif;
-	font-size: 1rem;
-	transition: background-color 0.2s ease;
 }
 
-.home-button:hover {
-	background-color: #f0f0f0;
-}
+
 
 /* Student buttons */
 .student-buttons {
 	flex: 1;
+    max-height: 18rem;
 }
 
 .button-grid-4x4 {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(4, 1fr);
-	gap: 0.5rem;
+	gap: 0.3rem;
 	width: 100%;
 	aspect-ratio: 1;
+	padding: 0.5rem;
 }
 
 .student-button {
@@ -150,24 +166,32 @@ body {
 .comment-section {
 	display: flex;
 	flex-direction: column;
-	gap: 0.5rem;
+	gap: 0;
+	flex: 1;
+	min-height: 0;
 }
 
 .comment-title {
-	font-weight: bold;
-	font-size: 1rem;
+	background-color: white;
 	color: black;
+    border: 1px solid black;
+	/* border-radius: 4px; */
+	padding: 0.2rem;
+	text-align: center;
+	font-weight: bold;
+	/* border-radius: 4px; */
+	font-size: 1rem;
 }
 
 .comment-list {
-	max-height: 300px;
+	max-height: 30rem;
 	overflow-y: auto;
-	margin-bottom: 1rem;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	padding: 1rem;
+	border: 1px solid black;
+	border-top: none;
+	padding: 0.5rem;
 	background-color: white;
-	min-height: 100px;
+	min-height: 18rem;
+	flex: 1;
 }
 
 .loading-message {
@@ -178,7 +202,7 @@ body {
 }
 
 .comment-item {
-	padding: 0.8rem 0;
+	padding-bottom: 0.8rem;
 	border-bottom: 1px solid #eee;
 }
 
@@ -210,12 +234,44 @@ body {
 	line-height: 1.4;
 }
 
+/* 카운트다운 타이머 스타일 */
+.countdown-timer {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	margin-bottom: 0.5rem;
+}
+
+.timer-label {
+	background-color: white;
+	border: 1px solid black;
+	padding: 0.2rem;
+	text-align: center;
+    font-weight: bold;
+	color: black;
+	font-family: 'Gowun Batang', serif;
+	margin: 0;
+}
+
+.timer-display {
+	background-color: white;
+	border: 1px solid black;
+	border-top: none;
+	padding: 0.6rem;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: bold;
+	color: black;
+	font-family: 'Gowun Batang', serif;
+	margin: 0;
+}
+
 /* 댓글 폼 스타일 */
 .comment-form {
-	background-color: #f8f9fa;
-	padding: 1rem;
-	border-radius: 4px;
-	border: 1px solid #e9ecef;
+	background-color: white;
+    margin-top: 0.5rem;
+	border-top: none;
+	border-radius: 0 0 4px 4px;
 }
 
 .comment-input-row {
@@ -228,7 +284,6 @@ body {
 	flex: 1;
 	height: 40px;
 	border: 2px solid black;
-	border-radius: 4px;
 	padding: 0.5rem;
 	font-family: 'Gowun Batang', serif;
 	font-size: 0.9rem;
@@ -273,7 +328,6 @@ body {
 	flex: 1;
 	height: 40px;
 	border: 2px solid black;
-	border-radius: 4px;
 	padding: 0.5rem;
 	font-family: 'Gowun Batang', serif;
 	font-size: 0.9rem;
@@ -290,14 +344,13 @@ body {
 	color: white;
 	border: none;
 	padding: 0.5rem 1rem;
-	border-radius: 4px;
 	font-family: 'Gowun Batang', serif;
 	font-size: 0.9rem;
 	font-weight: bold;
 	cursor: pointer;
 	transition: background-color 0.2s ease;
 	height: 40px;
-	min-width: 60px;
+	min-width: 80px;
 }
 
 .submit-button:hover {
@@ -409,6 +462,21 @@ article {
 		flex-direction: column;
 		gap: 1rem;
 		padding: 0.5rem;
+	}
+	
+	/* 모바일에서 타이머 스타일 조정 */
+	.timer-label {
+		font-size: 0.8rem;
+		padding: 0.4rem;
+	}
+	
+	.timer-display {
+		font-size: 0.9rem;
+		padding: 0.4rem;
+	}
+	
+	.comment-list {
+		max-height: 20rem;
 	}
 	
 	.sidebar {
