@@ -70,6 +70,7 @@ body {
     justify-content: space-between;
 	gap: 0.5rem;
 	overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .home-button {
@@ -286,6 +287,7 @@ body {
 	display: flex;
 	gap: 0.5rem;
 	align-items: center;
+    width: 100%;
 }
 
 .comment-input {
@@ -304,7 +306,7 @@ body {
 }
 
 .comment-textarea {
-	width: 100%;
+	width: 80%;
 	height: 100px;
 	border: 2px dashed black;
 	border-radius: 4px;
@@ -334,6 +336,7 @@ body {
 
 .comment-input {
 	flex: 1;
+    width: 80%;
 	height: 40px;
 	border: 2px solid black;
 	padding: 0.5rem;
@@ -358,7 +361,7 @@ body {
 	cursor: pointer;
 	transition: background-color 0.2s ease;
 	height: 40px;
-	min-width: 80px;
+	/* min-width: 80px; */
 }
 
 .submit-button:hover {
