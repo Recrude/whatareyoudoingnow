@@ -1,22 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>승주 - 어쩌구졸프는어쩌구...</title>
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="../favicons/favicon.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="../favicons/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="512x512" href="../favicons/android-chrome-512x512.png">
+	<link rel="manifest" href="../favicons/site.webmanifest">
+	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://whatareyoudoingnow.com/03-seungju/">
+	<meta property="og:title" content="승주 - 어쩌구졸프는어쩌구...">
+	<meta property="og:description" content="승주의 졸업 전시 작업을 확인하고 소통해보세요.">
+	<meta property="og:image" content="https://whatareyoudoingnow.com/favicons/opengraph.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://whatareyoudoingnow.com/01-jaeyeon/">
+	<meta property="twitter:title" content="재연 - 어쩌구졸프는어쩌구...">
+	<meta property="twitter:description" content="재연의 졸업 전시 작업을 확인하고 소통해보세요.">
+	<meta property="twitter:image" content="https://whatareyoudoingnow.com/favicons/opengraph.png">
+	
+	<!-- Additional Meta Tags -->
+	<meta name="description" content="재연의 졸업 전시 작업을 확인하고 소통해보세요.">
+	<meta name="keywords" content="졸업전시, 재연, 카운트다운, 타이머, 소통, 댓글">
+	<meta name="author" content="졸업전시팀">
+	
 	<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
 	<div class="main-container">
 		<div class="iframe-container">
-			<iframe src="https://docs.google.com/document/d/18bmZ_CIHJipZxG0IjMdbt9iC7cw91V2-BNu7Rfg73OQ/edit?tab=t.0"></iframe>
+			<iframe src="https://docs.google.com/document/d/10THhlwAgIslECCinavwDhBTikIKqj8kQMdYItdCf_RI/edit?tab=t.0"></iframe>
 		</div>
 		
 		<div class="sidebar">
 			<div class="header-section">
 				<div class="header-dark"><a href="../00-everyone/index.html">다들 뭐하고 있나요?</a></div>
 			</div>
+			
 			<div class="student-buttons">
 				<div class="button-grid-4x4">
 					<button class="student-button active" onclick="navigateToStudent('01-jaeyeon')">재연</button>
@@ -41,19 +73,16 @@
 			<div class="header-section">
 				<button class="home-button" onclick="goHome()" id="header-light">반 전시는 어떻게?</button>
 			</div>
-
-            <!-- 카운트다운 타이머 -->
+			<!-- 카운트다운 타이머 -->
             <div class="countdown-timer">
                 <div class="timer-label">졸업전시까지...</div>
                 <div class="timer-display" id="timerDisplay">00일 00시간 00분 00초</div>
             </div>
-			
 			<div class="comment-section">
 				<div class="comment-title">아무 말이나 한마디...</div>
-				
-				<div class="comment-list" id="commentList">
-					<div class="loading-message">댓글을 불러오는 중...</div>
-				</div>
+                <div class="comment-list" id="commentList">
+                    <div class="loading-message">댓글을 불러오는 중...</div>
+                </div>
 				
 				<div class="comment-form">
 					<div class="comment-input-row">
@@ -68,7 +97,7 @@
 	<!-- 공통 JavaScript 파일 -->
 	<script src="../script.js"></script>
 	
-	<!-- 03-seungju 페이지 전용 JavaScript -->
+	<!-- 01-jaeyeon 페이지 전용 JavaScript -->
 	<script>
 		// 페이지 로드 시 초기화
 		document.addEventListener('DOMContentLoaded', function() {
@@ -96,8 +125,8 @@
 		// 현재 페이지에 맞는 버튼 활성화
 		function updateActiveButton() {
 			const path = window.location.pathname;
-			if (path.includes('/03-seungju/')) {
-				setActiveButton('03-seungju');
+			if (path.includes('/01-jaeyeon/')) {
+				setActiveButton('01-jaeyeon');
 			} else {
 				document.querySelectorAll('.student-button').forEach(btn => {
 					btn.classList.remove('active');
