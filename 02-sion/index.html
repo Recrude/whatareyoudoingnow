@@ -51,8 +51,8 @@
 			
 			<div class="student-buttons">
 				<div class="button-grid-4x4">
-					<button class="student-button active" onclick="navigateToStudent('01-jaeyeon')">재연</button>
-					<button class="student-button" onclick="navigateToStudent('02-sion')">시온</button>
+					<button class="student-button" onclick="navigateToStudent('01-jaeyeon')">재연</button>
+					<button class="student-button active" onclick="navigateToStudent('02-sion')">시온</button>
 					<button class="student-button" onclick="navigateToStudent('03-seungju')">승주</button>
 					<button class="student-button" onclick="navigateToStudent('04-hyeonsu')">현수</button>
 					<button class="student-button" onclick="navigateToStudent('05-seungwan')">승완</button>
@@ -125,8 +125,8 @@
 		// 현재 페이지에 맞는 버튼 활성화
 		function updateActiveButton() {
 			const path = window.location.pathname;
-			if (path.includes('/01-jaeyeon/')) {
-				setActiveButton('01-jaeyeon');
+			if (path.includes('/02-sion/')) {
+				setActiveButton('02-sion');
 			} else {
 				document.querySelectorAll('.student-button').forEach(btn => {
 					btn.classList.remove('active');
