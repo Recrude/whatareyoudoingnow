@@ -243,7 +243,7 @@ body {
 	line-height: 1.4;
 }
 
-/* 카운트다운 타이머 스타일 */
+/* 통합 타이머 스타일 */
 .countdown-timer {
 	display: flex;
 	flex-direction: column;
@@ -251,15 +251,39 @@ body {
 	margin-bottom: 0.5rem;
 }
 
-.timer-label {
+.timer-header {
+	display: flex;
+	align-items: center;
 	background-color: white;
 	border: 1px solid black;
 	padding: 0.2rem;
-	text-align: center;
-    font-weight: bold;
+	font-size: 1rem;
+	font-weight: bold;
 	color: black;
 	font-family: 'Gowun Batang', serif;
 	margin: 0;
+}
+
+.timer-label {
+	flex: 1;
+	text-align: center;
+	margin-left: 40px; /* 버튼 공간만큼 오른쪽으로 밀기 */
+}
+
+.timer-toggle {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: black;
+	color: white;
+	border: none;
+	font-size: 0.9rem;
+	font-weight: bold;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 0.5rem;
 }
 
 .timer-display {
@@ -273,6 +297,40 @@ body {
 	color: black;
 	font-family: 'Gowun Batang', serif;
 	margin: 0;
+}
+
+.timer-buttons {
+	display: flex;
+	gap: 0.3rem;
+	justify-content: center;
+	padding: 0.5rem;
+	background-color: white;
+	border: 1px solid black;
+	border-top: none;
+}
+
+.timer-btn {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: black;
+	color: white;
+	border: none;
+	font-size: 0.9rem;
+	font-weight: bold;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.2s;
+}
+
+.timer-btn:hover {
+	background-color: #333;
+}
+
+.timer-btn.selected {
+	background-color: #ff0000;
 }
 
 /* 댓글 폼 스타일 */

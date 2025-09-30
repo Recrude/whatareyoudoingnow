@@ -182,9 +182,123 @@ function startCountdown() {
 		}
 	}
 	
+	// 기존 인터벌 정리
+	if (window.countdownInterval) {
+		clearInterval(window.countdownInterval);
+	}
+	
 	// 즉시 실행하고 1초마다 업데이트
 	updateTimer();
-	setInterval(updateTimer, 1000);
+	window.countdownInterval = setInterval(updateTimer, 1000);
+}
+
+// 활성 버튼 설정
+function setActiveButton(folderName) {
+	// 모든 버튼에서 active 클래스 제거
+	document.querySelectorAll('.student-button').forEach(btn => {
+		btn.classList.remove('active');
+	});
+	
+	// 해당 폴더의 버튼에 active 클래스 추가
+	const activeButton = document.querySelector(`[onclick*="${folderName}"]`);
+	if (activeButton) {
+		activeButton.classList.add('active');
+	}
+}
+
+// 활성 버튼 업데이트 (각 페이지에서 오버라이드)
+function updateActiveButton() {
+	// 기본 구현 - 각 페이지에서 오버라이드해야 함
+}
+
+// 타이머 모드 관련 변수
+let isGeneralTimerMode = false;
+let generalTimerInterval = null;
+let generalTimerSeconds = 0;
+
+// 타이머 모드 전환
+function toggleTimerMode() {
+	const timerLabel = document.getElementById('timerLabel');
+	const timerToggle = document.getElementById('timerToggle');
+	const timerButtons = document.getElementById('timerButtons');
+	
+	if (isGeneralTimerMode) {
+		// 졸업전시 타이머 모드로 전환
+		isGeneralTimerMode = false;
+		timerLabel.textContent = '졸업전시까지...';
+		timerToggle.textContent = 'T';
+		timerButtons.style.display = 'none';
+		
+		// 일반 타이머 정리
+		if (generalTimerInterval) {
+			clearInterval(generalTimerInterval);
+		}
+		
+		// 졸업전시 타이머 재시작
+		startCountdown();
+	} else {
+		// 일반 타이머 모드로 전환
+		isGeneralTimerMode = true;
+		timerLabel.textContent = '발표 끝날 때까지...';
+		timerToggle.textContent = 'G';
+		timerButtons.style.display = 'flex';
+		
+		// 졸업전시 타이머 정리
+		if (window.countdownInterval) {
+			clearInterval(window.countdownInterval);
+		}
+		
+		// 일반 타이머 표시 초기화
+		const timerDisplay = document.getElementById('timerDisplay');
+		timerDisplay.textContent = '00분 00초';
+		timerDisplay.style.backgroundColor = 'white';
+		timerDisplay.style.color = 'black';
+	}
+}
+
+// 일반 타이머 시작
+function selectTimer(minutes) {
+	// 기존 타이머 정리
+	if (generalTimerInterval) {
+		clearInterval(generalTimerInterval);
+	}
+	
+	generalTimerSeconds = minutes * 60;
+	
+	// UI 업데이트
+	updateTimerDisplay();
+	
+	// 1초마다 업데이트
+	generalTimerInterval = setInterval(() => {
+		generalTimerSeconds--;
+		updateTimerDisplay();
+		
+		// 타이머 종료
+		if (generalTimerSeconds <= 0) {
+			clearInterval(generalTimerInterval);
+			showTimerExpired();
+		}
+	}, 1000);
+}
+
+// 타이머 표시 업데이트
+function updateTimerDisplay() {
+	const timerDisplay = document.getElementById('timerDisplay');
+	if (timerDisplay && isGeneralTimerMode) {
+		const minutes = Math.floor(generalTimerSeconds / 60);
+		const seconds = generalTimerSeconds % 60;
+		timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}분 ${seconds.toString().padStart(2, '0')}초`;
+	}
+}
+
+// 타이머 만료 표시
+function showTimerExpired() {
+	const timerDisplay = document.getElementById('timerDisplay');
+	if (timerDisplay) {
+		timerDisplay.textContent = '00분 00초';
+		timerDisplay.style.backgroundColor = '#ff0000';
+		timerDisplay.style.color = '#ffffff';
+	}
 }
 
 // 공통 초기화 함수
