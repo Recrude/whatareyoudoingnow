@@ -77,7 +77,7 @@ body {
 	padding: 0.8rem;
 	text-align: center;
 	font-weight: bold;
-	width: 100%;
+	width: 50%;
 	cursor: pointer;
 	font-family: 'Gowun Batang', serif;
 	font-size: 1rem;
@@ -90,8 +90,36 @@ body {
 /* Header section */
 .header-section {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	gap: 0.5rem;
+}
+
+.drive-button {
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+	border-radius: 0;
+	padding: 0.8rem;
+	text-align: center;
+	font-weight: bold;
+	width: 50%;
+	cursor: pointer;
+	font-family: 'Gowun Batang', serif;
+	font-size: 1rem;
+	transition: all 0.2s ease;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.drive-button:hover {
+	background-color: #f0f0f0;
+}
+
+.drive-button.active {
+	background-color: black;
+	color: white;
 }
 
 .header-dark {
@@ -100,6 +128,7 @@ body {
 	padding: 0.8rem;
 	text-align: center;
 	font-weight: bold;
+    width: 100%;
 }
 
 .header-light {
@@ -132,7 +161,7 @@ body {
 /* Student buttons */
 .student-buttons {
 	flex: 1;
-    max-height: 18rem;
+    max-height: 17.2rem;
 }
 
 .button-grid-4x4 {
@@ -143,6 +172,14 @@ body {
 	width: 100%;
 	aspect-ratio: 1;
 	padding: 0.5rem;
+	height: 265px;
+	overflow-y: auto;
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+}
+
+.button-grid-4x4::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Opera */
 }
 
 .student-button {

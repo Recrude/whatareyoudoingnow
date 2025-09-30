@@ -25,6 +25,7 @@ function getCurrentSheetName() {
 	if (path.includes('/14-yeonwoo/')) return '14-yeonwoo';
 	if (path.includes('/15-jihoo/')) return '15-jihoo';
 	if (path.includes('/16-shini/')) return '16-shini';
+	if (path.includes('/29-byunghak/')) return '29-byunghak';
 	return 'home';
 }
 

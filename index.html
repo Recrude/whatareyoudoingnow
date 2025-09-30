@@ -70,11 +70,17 @@
 					<button class="student-button" onclick="navigateToStudent('14-yeonwoo')">연우</button>
 					<button class="student-button" onclick="navigateToStudent('15-jihoo')">지후</button>
 					<button class="student-button" onclick="navigateToStudent('16-shini')">신이</button>
+					<button class="student-button" onclick="navigateToStudent('29-byunghak')">병학</button>
 				</div>
 			</div>
 			
 			<div class="header-section">
-				<button class="home-button" onclick="goHome()" id="header-dark">반 전시는 어떻게?</button>
+				<div class="header-dark"><a href="00-everyone/index.html">다들 뭐하고 있나요?</a></div>
+			</div>
+			
+			<div class="header-section">
+				<button class="home-button" onclick="goHome()" id="header-dark">반 전시 제목</button>
+				<a href="https://drive.google.com/drive/folders/1yj9MH-v4zV_mgBbRSQeNoZEFHM1Nchz9?usp=sharing" target="board" class="drive-button" onclick="toggleDriveButton(this)">드라이브</a>
 			</div>
 
             <!-- 통합 타이머 -->
@@ -145,6 +151,11 @@
 			document.querySelectorAll('.student-button').forEach(btn => {
 				btn.classList.remove('active');
 			});
+		}
+		
+		function toggleDriveButton(button) {
+			// 드라이브 버튼 활성화 토글
+			button.classList.toggle('active');
 		}
 		
 	</script>

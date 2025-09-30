@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>도윤 - 어쩌구졸프는어쩌구...</title>
+	<title>병학 - 어쩌구졸프는어쩌구...</title>
 	
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="../favicons/favicon.ico">
@@ -16,23 +16,23 @@
 	
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://whatareyoudoingnow.com/09-doyoon/">
-	<meta property="og:title" content="도윤 - 어쩌구졸프는어쩌구...">
-	<meta property="og:description" content="도윤의 졸업 전시 작업을 확인하고 소통해보세요.">
+	<meta property="og:url" content="https://whatareyoudoingnow.com/29-byunghak/">
+	<meta property="og:title" content="병학 - 어쩌구졸프는어쩌구...">
+	<meta property="og:description" content="병학의 졸업 전시 작업을 확인하고 소통해보세요.">
 	<meta property="og:image" content="https://whatareyoudoingnow.com/favicons/opengraph.png">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
 	
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="https://whatareyoudoingnow.com/09-doyoon/">
-	<meta property="twitter:title" content="도윤 - 어쩌구졸프는어쩌구...">
-	<meta property="twitter:description" content="도윤의 졸업 전시 작업을 확인하고 소통해보세요.">
+	<meta property="twitter:url" content="https://whatareyoudoingnow.com/29-byunghak/">
+	<meta property="twitter:title" content="병학 - 어쩌구졸프는어쩌구...">
+	<meta property="twitter:description" content="병학의 졸업 전시 작업을 확인하고 소통해보세요.">
 	<meta property="twitter:image" content="https://whatareyoudoingnow.com/favicons/opengraph.png">
 	
 	<!-- Additional Meta Tags -->
-	<meta name="description" content="도윤의 졸업 전시 작업을 확인하고 소통해보세요.">
-	<meta name="keywords" content="졸업전시, 도윤, 카운트다운, 타이머, 소통, 댓글">
+	<meta name="description" content="병학의 졸업 전시 작업을 확인하고 소통해보세요.">
+	<meta name="keywords" content="졸업전시, 병학, 카운트다운, 타이머, 소통, 댓글">
 	<meta name="author" content="졸업전시팀">
 	<meta name="theme-color" content="#000000">	
 	<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@
 <body>
 	<div class="main-container">
 		<div class="iframe-container">
-			<iframe src="https://docs.google.com/document/d/18oAGOShXE80d-FmBX9nCeg_EANneeDwzOJCg8Qkeqgc/edit?tab=t.0"></iframe>
+			<iframe src="https://docs.google.com/document/d/13zJFc3MyhbZa4cPxCUWFJ2ojQXyitCO-5t_yT_D8X70/edit?tab=t.5o7j4o8e2j5k" name="board"></iframe>
 		</div>
 		
 		<div class="sidebar">
@@ -59,7 +59,7 @@
 					<button class="student-button" onclick="navigateToStudent('06-hyeonseong')">현성</button>
 					<button class="student-button" onclick="navigateToStudent('07-yerim')">예림</button>
 					<button class="student-button" onclick="navigateToStudent('08-jiheon')">지헌</button>
-					<button class="student-button active" onclick="navigateToStudent('09-doyoon')">도윤</button>
+					<button class="student-button" onclick="navigateToStudent('09-doyoon')">도윤</button>
 					<button class="student-button" onclick="navigateToStudent('10-jaewon')">재원</button>
 					<button class="student-button" onclick="navigateToStudent('11-mariyam')">마리얌</button>
 					<button class="student-button" onclick="navigateToStudent('12-simga')">심가</button>
@@ -67,9 +67,10 @@
 					<button class="student-button" onclick="navigateToStudent('14-yeonwoo')">연우</button>
 					<button class="student-button" onclick="navigateToStudent('15-jihoo')">지후</button>
 					<button class="student-button" onclick="navigateToStudent('16-shini')">신이</button>
-					<button class="student-button" onclick="navigateToStudent('29-byunghak')">병학</button>
+					<button class="student-button active" onclick="navigateToStudent('29-byunghak')">병학</button>
 				</div>
 			</div>
+		
 			
 			<div class="header-section">
 				<button class="home-button" onclick="goHome()" id="header-light">반 전시 제목</button>
@@ -109,7 +110,7 @@
 	<!-- 공통 JavaScript 파일 -->
 	<script src="../script.js"></script>
 	
-	<!-- 09-doyoon 페이지 전용 JavaScript -->
+	<!-- 01-jaeyeon 페이지 전용 JavaScript -->
 	<script>
 		// 페이지 로드 시 초기화
 		document.addEventListener('DOMContentLoaded', function() {
@@ -134,28 +135,9 @@
 			window.location.href = '../index.html';
 		}
 		
-		// 현재 페이지에 맞는 버튼 활성화
 		function updateActiveButton() {
-			const path = window.location.pathname;
-			if (path.includes('/09-doyoon/')) {
-				setActiveButton('09-doyoon');
-			} else {
-				document.querySelectorAll('.student-button').forEach(btn => {
-					btn.classList.remove('active');
-				});
-			}
-		}
-		
-		function setActiveButton(folderName) {
-			document.querySelectorAll('.student-button').forEach(btn => {
-				btn.classList.remove('active');
-			});
-			const buttons = document.querySelectorAll('.student-button');
-			buttons.forEach(btn => {
-				if (btn.onclick.toString().includes(folderName)) {
-					btn.classList.add('active');
-				}
-			});
+			// 29-byunghak 페이지에서는 병학 버튼이 활성화되어야 함
+			setActiveButton('29-byunghak');
 		}
 		
 		function toggleDriveButton(button) {
@@ -165,4 +147,5 @@
 		
 	</script>
 </body>
+</html>
 </html>
